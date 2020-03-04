@@ -107,4 +107,26 @@ const quickSort = arr => {
     return [...quickSort(left), pivot, quickSort(right)]
 }
 
-console.log(mergeSort([5,2,7,5,-1,12,1,3]))
+// console.log(mergeSort([5,2,7,5,-1,12,1,3]))
+
+const radixSort = arr => {
+    const maxValue = Math.max(...arr);
+    const maxDigits = Math.log(maxValue) / Math.log(10);
+    let buckets = new Array(arr.length);
+}
+
+function binarySearch(arr, target){
+    if (!arr.length) return false;
+    const midIdx = Math.floor(arr.length/2);
+    if (target < arr[midIdx]){
+        return binarySearch(arr.slice(0,midIdx), target)
+    } else if (target > arr[midIdx]){
+        return binarySearch(arr.slice(midIdx+1), target)
+    } else {
+        return true;
+    };
+}
+
+// console.log(binarySearch([5, 10, 12, 15, 20, 30, 70], 12));
+// console.log(binarySearch([5, 10, 12, 15, 20, 30, 70], 24));
+
