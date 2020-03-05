@@ -151,4 +151,38 @@ var lengthOfLongestSubstring = function(str) {
     }
 };
 
-console.log(lengthOfLongestSubstring("abcabcbb"));
+// console.log(lengthOfLongestSubstring("abcabcbb"));
+
+// There are two sorted arrays nums1 and nums2 of size m and n respectively.
+
+// Find the median of the two sorted arrays. The overall run time complexity should be 
+// O(log (m+n)).
+
+// You may assume nums1 and nums2 cannot be both empty.
+
+var findMedianSortedArrays = function(nums1, nums2) {
+    let midIdx;
+    let which;
+    let smallest;
+    if ((nums1.length + nums2.length) % 2 === 1){
+        midIdx = Math.floor((nums1.length + nums2.length) / 2);
+        which = "odd";
+    } else {
+        midIdx = ((nums1.length + nums2.length) / 2) - 1;
+        which = "even";
+    };
+    while (midIdx >= 0){
+        let min = !nums2.length || nums1[0] < nums2[0] ? 1 : 2;
+        smallest = min === 1 ? nums1.shift() : nums2.shift();
+        midIdx--;
+    }
+    if (which === "odd"){
+        return smallest;
+    } else {
+        let min = !nums2.length || nums1[0] < nums2[0] ? nums1[0] : nums2[0];
+        return (smallest + min) / 2;
+    }
+};
+
+console.log(findMedianSortedArrays([1,3],[2]));
+console.log(findMedianSortedArrays([1,2],[3,4]));
