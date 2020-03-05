@@ -130,3 +130,25 @@ function binarySearch(arr, target){
 // console.log(binarySearch([5, 10, 12, 15, 20, 30, 70], 12));
 // console.log(binarySearch([5, 10, 12, 15, 20, 30, 70], 24));
 
+// Given a string, find the length of the longest substring without repeating characters.
+
+var lengthOfLongestSubstring = function(str) {
+    let longest = str[0];
+    let set = new Set();
+    for (let i=0; i<str.length; i++){
+        set.add(str[i]);
+        if (str.length - i <= longest.length) return longest.length;
+        for (let j=i+1; j<str.length; j++){
+            if(set.has(str[j])){
+                break;
+            }else {
+                set.add(str[j]);
+                if (str.slice(i,j+1).length > longest.length) longest = str.slice(i,j+1);
+                console.log(j);
+                console.log(longest);
+            }
+        }
+    }
+};
+
+console.log(lengthOfLongestSubstring("abcabcbb"));
