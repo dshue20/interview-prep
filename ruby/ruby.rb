@@ -37,9 +37,9 @@ end
 # how far can you deliver a payload? You can transfer the payload from truck to truck, 
 # and you can transfer fuel from truck to truck. Assume all the payload will fit in one truck.
 
-def delivery(trucks=50)
-    100/50 + 100/49 + 100/48 + ... + 100/1 
-end
+# def delivery(trucks=50)
+#     100/50 + 100/49 + 100/48 + ... + 100/1 
+# end
 
 # Consider a linked list. Each link in the list holds a next reference to the next item in the list,
 #  except for the final link, which points to nil.
@@ -89,18 +89,18 @@ end
 # end
 
 def cyclic2?(first_link)
-slow_runner = first_link
-fast_runner = first_link
+  slow_runner = first_link
+  fast_runner = first_link
 
-while true
-  2.times do
-    fast_runner = fast_runner.next
-    return false if fast_runner.nil?
-    return true if fast_runner == slow_runner
+  while true
+    2.times do
+      fast_runner = fast_runner.next
+      return false if fast_runner.nil?
+      return true if fast_runner == slow_runner
+    end
+
+    slow_runner = slow_runner.next
   end
-
-  slow_runner = slow_runner.next
-end
 end
 
 
@@ -115,4 +115,18 @@ def converging_node(list1, list2)
     length1++
     
   end
+end
+
+# Given a string s, find the longest palindromic substring in s. 
+# You may assume that the maximum length of s is 1000.
+
+def longest_palindrome(str)
+  longest = ""
+  for i in 0...str.length
+      for j in (i + longest.length)...str.length
+          substr = str[i..j]
+          longest = substr if str[j] == str[i] && substr == substr.reverse
+      end
+  end
+  longest
 end
