@@ -4,9 +4,8 @@
 def permutations(arr)
     array = []
     if arr.empty?
-        return []
-    end
-    
+      return []
+    end 
 end
 
 def permutations(arr)
@@ -64,13 +63,13 @@ def cyclic?(first_link)
 end
 
 def cyclic?(first_link)
-link = first_link
-while link.next
-  return true if link.val == "paul-kim"
-  link.val = "paul-kim"
-  link = link.next
-end
-false
+  link = first_link
+  while link.next
+    return true if link.val == "paul-kim"
+    link.val = "paul-kim"
+    link = link.next
+  end
+  false
 end
 
 # def cyclic1?(first_link)
@@ -98,7 +97,6 @@ def cyclic2?(first_link)
       return false if fast_runner.nil?
       return true if fast_runner == slow_runner
     end
-
     slow_runner = slow_runner.next
   end
 end
@@ -113,7 +111,6 @@ def converging_node(list1, list2)
   length1, length2 = 0, 0
   until !head1.next 
     length1++
-    
   end
 end
 

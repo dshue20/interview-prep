@@ -340,4 +340,4 @@ var isMatch = function(str, p) {
     return true;
 };
 
-console.log(isMatch("aa", "a*"));
+// console.log(isMatch("aa", "a*"));
