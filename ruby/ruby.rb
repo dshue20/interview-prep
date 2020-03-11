@@ -127,3 +127,35 @@ def longest_palindrome(str)
   end
   longest
 end
+
+# Write a function to find the longest common prefix string amongst an array of strings.
+
+# If there is no common prefix, return an empty string "".
+
+# Example 1:
+
+# Input: ["flower","flow","flight"]
+# Output: "fl"
+# Example 2:
+
+# Input: ["dog","racecar","car"]
+# Output: ""
+# Explanation: There is no common prefix among the input strings.
+# Note:
+
+# All given inputs are in lowercase letters a-z.
+
+def longest_common_prefix(strs)
+  return "" if strs.empty? || strs == [""]
+  longest = ""
+  idx = 0
+  while idx < strs[0].length
+      prefix = strs[0][0..idx]
+      strs.each do |word|
+          return longest if word[0..idx] != prefix
+      end
+      longest = prefix
+      idx += 1
+  end
+  longest
+end
