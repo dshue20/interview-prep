@@ -413,3 +413,67 @@ var intToRoman = function(num) {
     }
     return roman;
 };
+
+// Given an array nums of n integers, are there elements a, b, c in nums such that 
+// a + b + c = 0? Find all unique triplets in the array which gives the sum of zero.
+
+// Note:
+
+// The solution set must not contain duplicate triplets.
+
+// Example:
+
+// Given array nums = [-1, 0, 1, 2, -1, -4],
+
+// A solution set is:
+// [
+//   [-1, 0, 1],
+//   [-1, -1, 2]
+// ]
+
+var twoSum = function(nums, target){
+    let arr = [];
+    for (let i=0; i<nums.length; i++){
+        let spliced = [...nums];
+        spliced.splice(i,1);
+        if (spliced.includes(target - nums[i])){
+            toPush = [nums[i], target - nums[i]].sort((x,y) => x-y);
+            already = false;
+            arr.forEach(subarr => {
+                if (JSON.stringify(subarr) === JSON.stringify(toPush)) already = true;
+            });
+            if (!already) arr.push(toPush);
+        }
+    }
+    return arr;
+}
+
+var threeSum = function(nums) {
+    let arr = [];
+    for (let i=0; i<nums.length; i++){
+        let spliced = [...nums]
+        spliced.splice(i,1);
+        let twos = twoSum(spliced, 0 - nums[i]);
+        // console.log(spliced, twos);
+        if (twos.length){
+            twos.map(subarr => {
+                subarr.push(nums[i]);
+                return subarr.sort((x,y) => x-y);
+            })
+        }
+        twos.forEach(subtwo => {
+            let already = false;
+            for (let subarr of arr) {
+                if (JSON.stringify(subarr) === JSON.stringify(subtwo)){
+                    already = true;
+                    break;
+                }
+            }
+            if (!already) arr.push(subtwo);
+        })
+    }
+    return arr;
+};
+
+// console.log(twoSum([-1,0,0,1], 0));
+console.log(threeSum([-1,0,1,2,-1,-4]));
