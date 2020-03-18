@@ -28,14 +28,15 @@ def remove_duplicates(nums)
     idx = 0
     while nums[idx] do
        if set.include?(nums[idx])
-           nums.delete_at(nums[idx])
+           nums.delete_at(idx)
        else
            set.add(nums[idx]) 
            idx += 1
        end
+       p nums
+       p idx
     end
     nums
 end
 
-p remove_duplicates([1,1,2])
-p remove_duplicates([0,0,1,1,1,2,2,3,3,4])
+p remove_duplicates([-1,0,0,0,0,3,3])
