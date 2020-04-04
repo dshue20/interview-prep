@@ -35,4 +35,4 @@ root.right = TreeNode.new(46)
 root.right.right = TreeNode.new(56)
 root.right.right.left = TreeNode.new(72)
 
-p sum_even_grandparent(root)
+# p sum_even_grandparent(root)
