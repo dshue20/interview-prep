@@ -30,11 +30,9 @@ def group_the_people(group_sizes)
     result = []
     hash = {}
     group_sizes.each_with_index do |size, idx|
-        # p hash[size]
         if hash[size] && hash[size].any? {|space| space == nil}
             hash[size][hash[size].index(nil)] = idx
         else
-            # result << hash[size] if hash[size]
             hash[size] = Array.new(size)
             hash[size][0] = idx
         end
