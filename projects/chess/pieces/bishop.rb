@@ -1,11 +1,11 @@
 require_relative "./piece"
 
-class Pawn < Piece
+class Bishop < Piece
 
     attr_reader :symbol
 
     def initialize(pos, color)
         super(pos, color)
-        @symbol = "P"
+        @symbol = "B"
     end
 end
