@@ -14,22 +14,22 @@ class Board
         @grid = Array.new(8) {Array.new(8, "-")}
         (0..7).each do |space|
             @grid[1][space] = Pawn.new([1, space], "black")
-            @grid[6][space] = Pawn.new([1, space], "white")
+            @grid[6][space] = Pawn.new([6, space], "white")
             if space == 0 || space == 7
-                @grid[0][space] = Rook.new([1, space], "black")
-                @grid[7][space] = Rook.new([1, space], "white")
+                @grid[0][space] = Rook.new([0, space], "black")
+                @grid[7][space] = Rook.new([7, space], "white")
             elsif space == 1 || space == 6
-                @grid[0][space] = Knight.new([1, space], "black")
-                @grid[7][space] = Knight.new([1, space], "white")
+                @grid[0][space] = Knight.new([0, space], "black")
+                @grid[7][space] = Knight.new([7, space], "white")
             elsif space == 2 || space == 5
-                @grid[0][space] = Bishop.new([1, space], "black")
-                @grid[7][space] = Bishop.new([1, space], "white")
+                @grid[0][space] = Bishop.new([0, space], "black")
+                @grid[7][space] = Bishop.new([7, space], "white")
             elsif space == 3
-                @grid[0][space] = Queen.new([1, space], "black")
-                @grid[7][space] = Queen.new([1, space], "white")
+                @grid[0][space] = Queen.new([0, space], "black")
+                @grid[7][space] = Queen.new([7, space], "white")
             elsif space == 4
-                @grid[0][space] = King.new([1, space], "black")
-                @grid[7][space] = King.new([1, space], "white")
+                @grid[0][space] = King.new([0, space], "black")
+                @grid[7][space] = King.new([7, space], "white")
             end
         end
     end
