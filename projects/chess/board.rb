@@ -51,10 +51,13 @@ class Board
     end
 
     def print_grid
-        @grid.each do |row|
-            row.each do |space|
-               print space == "-" ? space : space.symbol 
-               print " "
+        @grid.each_with_index do |row, idx1|
+            row.each_with_index do |space, idx2|
+                if (idx1.even? && idx2.even?) || (idx1.odd? && idx2.odd?)
+                    print space == "-" ? space.colorize(:background => :green, :color => :black) : space.symbol.colorize(:background => :green, :color => space.color.to_sym) 
+                else
+                    print space == "-" ? space.colorize(:background => :light_black, :color => :black) : space.symbol.colorize(:background => :light_black, :color => space.color.to_sym) 
+                end
             end
             puts
         end
