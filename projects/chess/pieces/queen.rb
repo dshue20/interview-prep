@@ -1,4 +1,6 @@
 require_relative "./piece"
+require_relative "../modules/step"
+require_relative "../modules/slide"
 
 class Queen < Piece
 
@@ -7,5 +9,9 @@ class Queen < Piece
     def initialize(pos, color)
         super(pos, color)
         @symbol = "Q"
+    end
+
+    def possible_moves(grid)
+        side_moves(@pos, grid, 7) + diagonal_moves(@pos, grid, 7)
     end
 end
