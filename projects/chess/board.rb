@@ -46,8 +46,14 @@ class Board
 
     def move_piece(start, end_pos)
         raise 'There is no piece there' if self[start] === "-"
-        self[end_pos] = self[start]
-        self[start] = "-"
+        piece = self[start]
+        if piece.possible_moves(@grid).include?(end_pos)
+            self[end_pos] = piece
+            piece.pos = end_pos
+            self[start] = "-"
+        else
+            raise 'Invalid move'
+        end
     end
 
     def print_grid
@@ -63,3 +69,5 @@ class Board
         end
     end
 end
+
+board = Board.new
