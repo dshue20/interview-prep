@@ -11,6 +11,6 @@ class Rook < Piece
     end
 
     def possible_moves(grid)
-        side_moves(@pos, grid, 7)
+        side_moves(@pos, @color, grid, 7)
     end
 end

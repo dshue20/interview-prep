@@ -11,6 +11,6 @@ class Bishop < Piece
     end
 
     def possible_moves(grid)
-        diagonal_moves(@pos, grid, 7)
+        diagonal_moves(@pos, @color, grid, 7)
     end
 end

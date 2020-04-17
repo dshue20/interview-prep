@@ -12,6 +12,6 @@ class King < Piece
     end
 
     def possible_moves(grid)
-        side_moves(@pos, grid, 1) + diagonal_moves(@pos, grid, 1)
+        side_moves(@pos, @color, grid, 1) + diagonal_moves(@pos, @color, grid, 1)
     end
 end
