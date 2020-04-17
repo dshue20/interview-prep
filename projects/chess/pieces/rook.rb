@@ -1,4 +1,5 @@
 require_relative "./piece"
+require_relative "../modules/step"
 
 class Rook < Piece
 
@@ -7,5 +8,9 @@ class Rook < Piece
     def initialize(pos, color)
         super(pos, color)
         @symbol = "R"
+    end
+
+    def possible_moves(grid)
+        side_moves(@pos, grid, 7)
     end
 end
