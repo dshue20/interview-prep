@@ -22,3 +22,6 @@ Cross-Site Request Forgery: When a hacker submits a page request on your behalf 
 * It requires manual entry in the command to create the data with their fields
 * It does not require any such generation to take place
 * It requires the database to be migrated
+
+# What is responsive design?
+Websites that are built with responsive design use media queries to target breakpoints that scale images, wrap text and adjust layout so that the website can ‘shrink to fit’ any size of screen.
