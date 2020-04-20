@@ -25,3 +25,7 @@ Cross-Site Request Forgery: When a hacker submits a page request on your behalf 
 
 # What is responsive design?
 Websites that are built with responsive design use media queries to target breakpoints that scale images, wrap text and adjust layout so that the website can ‘shrink to fit’ any size of screen.
+
+# Fluid vs fixed layouts
+* Fluid layouts use percentages for height/width
+* Fixed layouts use fixed pixel widths
