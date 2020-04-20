@@ -7,3 +7,6 @@ A callback is any function that is passed into another function and called withi
 # What is the event loop? 
 
 The event loop handles processing asynchronous requests alongside synchronous requests. When functions are invoked, they are placed in a call stack and evaluated one at a time. When an asynchronous function is invoked, the asynchronous parts of the function are handled within some web api and then loaded onto a task queue when it is ready to be returned. The event loop waits for the call stack to be empty and then takes the first item in the task queue and places it on the top of the call stack.
+
+# What is AJAX?
+Asynchronous Javascript And XML. AJAX allows web pages to be updated asynchronously by exchanging data with a web server behind the scenes. This means that it is possible to update parts of a web page, without reloading the whole page.
