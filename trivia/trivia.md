@@ -9,3 +9,6 @@
 7. Browser parses the response
 8. Browser checks response headers (esp status code)
 9. Browser renders HTML
+
+# What is CSRF?
+Cross-Site Request Forgery: When a hacker submits a page request on your behalf to a different website, may reveal sensitive data; Rails can require CSRF token by adding 'protect_from_forgery' to ApplicationController
