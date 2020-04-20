@@ -13,6 +13,9 @@
 # What is CSRF?
 Cross-Site Request Forgery: When a hacker submits a page request on your behalf to a different website, may reveal sensitive data; Rails can require CSRF token by adding 'protect_from_forgery' to ApplicationController
 
+# What is an XSS attack?
+Cross-Site Scripting: injection attack; doesn't need an authenticated session like CSRF
+
 # What is Dynamic vs Static Scaffolding?
 ### Dynamic
 * It automatically creates the entire content and user interface at runtime
@@ -29,3 +32,9 @@ Websites that are built with responsive design use media queries to target break
 # Fluid vs fixed layouts
 * Fluid layouts use percentages for height/width
 * Fixed layouts use fixed pixel widths
+
+# Load balancing
+Load balancing refers to efficiently distributing incoming network traffic across a group of backend servers, also known as a server farm or server pool. Functions:
+* Distributes client requests or network load efficiently across multiple servers
+* Ensures high availability and reliability by sending requests only to servers that are online
+* Provides the flexibility to add or subtract servers as demand dictates
