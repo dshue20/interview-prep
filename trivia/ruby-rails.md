@@ -15,3 +15,9 @@ Cross-Site Request Forgery: When a hacker submits a page request on your behalf 
 
 # Redirect vs render?
 Redirect usually implies that something went wrong with a request, so the user will be redirected to a different view. Render is used to bring up content inside a controller assuming there are no errors
+
+# What is a polymorphic association?
+Allows an ActiveRecord object to be connected to multiple other ActiveRecord objects; e.g. likes on posts and comments
+
+# Extend vs include
+The “include” makes the module’s methods available to the instance of a class, while “extend” makes these methods available to the class itself
