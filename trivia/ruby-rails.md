@@ -21,3 +21,9 @@ Allows an ActiveRecord object to be connected to multiple other ActiveRecord obj
 
 # Extend vs include
 The “include” makes the module’s methods available to the instance of a class, while “extend” makes these methods available to the class itself
+
+# Block vs proc vs lambda
+Block: chunk of code that can be used as an input or with a method call; code in block can be invoked using 'yield'
+Proc: code bound to a set of local variables; functions can be called on a proc (e.g. call)
+'&' is used to convert between block and proc
+Lambda: proc that must receive the same number of arguments as defined; returns from within lambda, not current method
