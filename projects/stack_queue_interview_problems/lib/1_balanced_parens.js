@@ -76,28 +76,33 @@
 // Let's code!
 // -----------
 function balancedParens(str) {
-    let parens = 0;
-    let squiggly = 0;
-    let bracket = 0;
+    let stack = [];
     for (let i=0; i < str.length; i++){
-        if (str === "("){
-            parens++;
-        } else if (str === "{"){
-            squiggly++;
-        } else if (str === "["){
-            bracket++;
-        } else if (str === ")"){
-            if (!parens) return false;
-            parens--;
-        } else if (str === "}"){
-            if (!squiggly) return false;
-            squiggly--;
-        } else if (str === "]"){
-            if (!bracket) return false;
-            bracket--;
+        if (str[i] === '(' || str[i] === '{' || str[i] === '['){
+            stack.unshift(str[i]);
+        } else if (str[i] === ')'){
+            if (stack[0] === '('){
+                stack.shift();
+            } else {
+                return false;
+            }
+        } else if (str[i] === '}'){
+            if (stack[0] === '{'){
+                stack.shift();
+            } else {
+                return false;
+            }
+        } else if (str[i] === ']'){
+            if (stack[0] === '['){
+                stack.shift();
+            } else {
+                return false;
+            }
         }
     }
-    return true;
+    return stack.length === 0
 }
+
+console.log(balancedParens(")("))
 
 exports.balancedParens = balancedParens;
