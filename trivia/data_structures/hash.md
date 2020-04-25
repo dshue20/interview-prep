@@ -18,3 +18,5 @@ Cons:
 * Cryptographic hashing functions: slower than standard ones but fewer collisions
     * Also more secures
 * Set is implemented using hash set! (in Ruby)
+* Ruby hashes with <= 6 entries are actually arrays :o (single bucket)
+* LRU cache uses hash map with keys pointing to nodes in a linked list; linked list is ordered according to most recently accessed
