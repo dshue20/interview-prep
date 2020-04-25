@@ -10,3 +10,11 @@ Cons:
 - Collisions increase runtime
     - Collisions solved by implementing linked list (called chaining) (one way to solve)
     - May require rehashing/resizing (O(n))
+
+# Hash Function
+* Deterministic: input will always produce the same hashed output
+* Uniform: any hashed output will be produced with equal likelihood as any other
+* One-way: can't predict input from output
+* Cryptographic hashing functions: slower than standard ones but fewer collisions
+    * Also more secures
+* Set is implemented using hash set! (in Ruby)
