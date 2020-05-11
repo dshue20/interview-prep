@@ -59,3 +59,20 @@
     * Weighted round robin: each server is assigned a weight according to its processing capacity, assigned a correlated amount of traffic
     * IP Hash: hash of client’s IP address is used to assign server
 * Multiple load balancers can be used to ensure no single point of failure
+
+# Caching
+
+* Takes advantage of locality of reference principle: recently requested data is likely to be requested again
+* Similar to short-term memory
+* CDN (Content delivery network): globally distributed network of proxy servers that serve content from locations closer to the user
+* Usually serve static files (HTML, CSS, JS, photos/vids)
+    * Push CDNs: receive new content whenever changes occur on the server
+        * Good for sites with low traffic / content that isn’t regularly updated
+    * Pull CDNs: grab new content from the server when the user first requests the content
+        * Requests are slower, but storage space on the CDN is minimized
+        * Good for sites with heavy traffic
+        * Costs can be significant
+* How to solve cache invalidation (if database data is modified, it should be invalidated in the cache):
+    * Write-through cache: data is written into the cache and database at the same time (high latency for write operations)
+    * Write-around cache: data is written into permanent storage, might cause “cache miss” for reading recently written data and cause read latency
+    * Write-back cache: data is written to cache and then to storage at certain intervals/conditions; fast but comes with risk of data loss in a crash
