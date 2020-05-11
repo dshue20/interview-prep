@@ -126,3 +126,13 @@
 * NoSQL databases trade ACID compliancy for performance and scalability
     * Good for unstructured, rapidly changing, distributed data
 
+# CAP Theorem
+
+* Of consistency, availability, and partition tolerance, a distributed computer system can only support ⅔
+    * Consistency: every read receives the most recent write/error; all users see the same data at the same time
+    * Availability: Every request receives a response, without guarantee that it contains the most recent version of the information; system continues to function even with node failures
+    * Partition Tolerance: The system continues to operate despite arbitrary partitioning due to network failures
+        * Always need partition tolerance b/c networks aren’t reliable
+* RDBMS: availability + consistency
+* Cassandra, CouchDB: availability + partition tolerance
+* BigTable, MongoDB, HBase: consistency + partition tolerance
