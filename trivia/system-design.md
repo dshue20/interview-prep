@@ -76,3 +76,18 @@
     * Write-through cache: data is written into the cache and database at the same time (high latency for write operations)
     * Write-around cache: data is written into permanent storage, might cause “cache miss” for reading recently written data and cause read latency
     * Write-back cache: data is written to cache and then to storage at certain intervals/conditions; fast but comes with risk of data loss in a crash
+
+# Data Partitioning
+
+* Used to break up a big database into smaller parts
+* Horizontal partitioning / data sharding: different rows in different tables
+    * E.g. for a table of zip codes, 0-10000 in one table, 10001-20000 in another, etc
+    * Can lead to unbalanced servers if partitions are not chosen carefully (e.g. for zip codes, some are much more populated than others)
+* Vertical partitioning: data is stored in different tables sorted by feature
+    * E.g. for Instagram, users are stored on one DB server, photos on another, etc
+* Directory-based partitioning: custom partitions that are looked up in a directory
+* Problems:
+    * Joins across partitions (separate servers) can be tough/inefficient
+        * Countered with denormalization: tables store redundant info to prevent joins, but this may lead to data inconsistency (data has to be updated in multiple places)
+    * Referential integrity: trying to enforce data integrity constraints such as foreign keys in a partitioned database can be extremely difficult
+    * Rebalancing: needing to redo partitions if data distribution isn’t uniform
