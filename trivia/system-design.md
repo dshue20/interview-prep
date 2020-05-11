@@ -102,3 +102,27 @@
     * Transparent proxy: reveals identity and first IP address; can cache websites
 * Closed proxy: proxy server that allows users within a network group to store and forward Internet services in order to control bandwidth
 * Reverse proxy: retrieves resources on behalf of a client from one or more servers
+
+# SQL vs NoSQL
+
+* Relational vs non-relational database
+* Relational database: structured, predefined schemas (e.g. phone book)
+    * Data stored in rows and columns
+    * Includes MySQL, Oracle, MS SQL Server, SQLite, Postgres, and MariaDB
+* Non-relational database: unstructured, distributed, dynamic schema (e.g. file folders)
+    * Key-value stores: Redis, Voldemort, Dynamo
+    * Document databases: data is stored in documents instead of rows/columns
+        * Documents are grouped in collections
+        * Each document can have different structure
+        * Includes CouchDB and MongoDB
+    * Wide-column databases: uses column families (containers for rows) instead of regular tables
+        * Columns aren’t known up front, each row doesn’t need to have the same number of columns
+        * Good for large datasets
+        * Includes Cassandra and HBase
+    * Graph databases: Neo4J and InfiniteGraph
+* SQL databases are vertically scalable, NoSQL databases are horizontally scalable
+* SQL databases are better with data reliability and ACID compliancy (atomicity, consistency, isolation, durability)
+    * Good for structured, unchanging data
+* NoSQL databases trade ACID compliancy for performance and scalability
+    * Good for unstructured, rapidly changing, distributed data
+
