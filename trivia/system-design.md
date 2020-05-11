@@ -136,3 +136,17 @@
 * RDBMS: availability + consistency
 * Cassandra, CouchDB: availability + partition tolerance
 * BigTable, MongoDB, HBase: consistency + partition tolerance
+
+# Communication Protocols
+
+* Ajax polling:
+    * Client opens connection, requests data from server using HTTP
+    * Webpage sends requests to the server at regular intervals
+    * Server calculates the response and sends it back using HTTP
+    * Cons: lots of empty responses, creates HTTP overhead
+* HTTP Long-Polling: server doesn’t respond immediately
+    * Doesn’t respond if no data is available
+    * Once data is available, a full response is sent, then a new request is immediately sent
+    * Times out after certain interval
+* Websockets: client and server can exchange data both ways at any time, allows for real-time data transfer
+* Server-sent Events (SSE): client establishes connection, server sends new info whenever available; client can’t send data to server
