@@ -44,3 +44,18 @@
     * If data is hashed to integers 0-256, cache servers are placed at intervals on the number line
     * Data is hashed and assigned to the closest server on the number line
     * Virtual replicas (multiple copies of the same server) are placed on different points on the number line for uniform distribution of data
+
+# Load Balancing
+
+* Helps spread traffic across a cluster of servers to improve responsiveness and adaptability
+* Also keeps track of the status of all of the resources while distributing requests
+* Can be positioned between client and web server, web server and application/cache server, and application/cache server and database server
+* Implement health checks to only forward traffic to working servers
+* Implement algorithm to distribute traffic
+    * Least connection: server with fewest active connections
+    * Least response time: server with lowest average response time
+    * Least bandwidth: server with least traffic, measured in megabits per second
+    * Round robin: goes in a cycle
+    * Weighted round robin: each server is assigned a weight according to its processing capacity, assigned a correlated amount of traffic
+    * IP Hash: hash of client’s IP address is used to assign server
+* Multiple load balancers can be used to ensure no single point of failure
