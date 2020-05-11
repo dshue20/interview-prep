@@ -91,3 +91,14 @@
         * Countered with denormalization: tables store redundant info to prevent joins, but this may lead to data inconsistency (data has to be updated in multiple places)
     * Referential integrity: trying to enforce data integrity constraints such as foreign keys in a partitioned database can be extremely difficult
     * Rebalancing: needing to redo partitions if data distribution isn’t uniform
+
+# Proxy Server
+
+* Intermediate server between client and back-end server
+* Typically used to filter, log, or transform requests
+* Uses cache to serve requests
+* Open proxy: proxy server accessible by any Internet user
+    * Anonymous proxy: reveals identity but hides IP address
+    * Transparent proxy: reveals identity and first IP address; can cache websites
+* Closed proxy: proxy server that allows users within a network group to store and forward Internet services in order to control bandwidth
+* Reverse proxy: retrieves resources on behalf of a client from one or more servers
