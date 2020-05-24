@@ -59,3 +59,5 @@ class StockSpanner
 
 
 end
+
+# can be more efficient
