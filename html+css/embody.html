@@ -1,0 +1,72 @@
+<html>
+  <head>
+    <style>
+        html {
+            scroll-padding-top: 70px;
+        }
+      body {
+        background-color: #1d2126;
+        color: white;
+        height: 2000px;
+        scroll-behavior: smooth;
+      }
+      header {
+       background-color: red; 
+        text-align: center;
+        height: 70px;
+        line-height: 70px;
+        position: fixed;
+        width: 100%;
+        top: 0;
+      }
+      div {
+          height: 70px;
+      }
+      .sticky{
+       position: fixed;
+        width: 100%;
+        top: 0;
+      }
+    </style>
+    <script>
+        window.onload = function() {
+            scrollTo();
+        };
+
+        function scrollTo() {
+            const links = document.getElementById("link");
+            link.onclick = scrollAnchors;
+        }
+
+        function scrollAnchors(e, respond = null) {
+            const distanceToTop = el => Math.floor(el.getBoundingClientRect().top - 70);
+            e.preventDefault();
+            var targetID = (respond) ? respond.getAttribute('href') : this.getAttribute('href');
+            const targetAnchor = document.querySelector(targetID);
+            if (!targetAnchor) return;
+            const originalTop = distanceToTop(targetAnchor);
+            window.scrollBy({ top: originalTop, left: 0, behavior: 'smooth' });
+            const checkIfDone = setInterval(function() {
+                const atBottom = window.innerHeight + window.pageYOffset >= document.body.offsetHeight - 2;
+                if (distanceToTop(targetAnchor) === 0 || atBottom) {
+                    targetAnchor.tabIndex = '-1';
+                    targetAnchor.focus();
+                    window.history.pushState('', '', targetID);
+                    clearInterval(checkIfDone);
+                }
+            }, 100);
+        }
+    </script>
+  </head>
+  <body>
+    <header id="myHeader">
+      <a class="scroll" id="link" href="#lorem5">Embody</a>
+    </header>
+    <div></div>
+    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+    <p id="lorem5">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+    </body>
+</html>
