@@ -1,0 +1,17 @@
+SELECT 
+    reports.task_id, tasks.name, 
+CASE
+    WHEN AVG(reports.score) <= 20 THEN 'Hard'
+    WHEN AVG(reports.score) > 20 AND AVG(reports.score) <= 60 THEN 'Medium'
+    WHEN AVG(reports.score) > 60 THEN 'Easy'
+END AS difficulty
+FROM
+    reports
+JOIN
+    tasks
+ON
+    reports.task_id = tasks.id
+GROUP BY
+    reports.task_id, tasks.name
+ORDER BY
+    reports.task_id
