@@ -1,10 +1,7 @@
-def count_cond(func):
-    def inner(x):
-        def another(y):
-            return func(x,y)
-        return another
-    return inner
+def missing_num(arr):
+  set = {}
+  for i in range(len(arr)):
+    set.add(arr[i])
 
-count_cond(add)(5)(3)
-inner1(5)(3)
-inner2(3) # => 5+3 = 8
+  for i in range(len(arr)):
+    if (!(i in set)) return i
