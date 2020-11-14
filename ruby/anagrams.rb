@@ -28,4 +28,4 @@ def anagrams(words)
     result
 end
 
-p anagrams(['cat', 'dog', 'god', 'act'])
+p anagrams(['cat', 'dog', 'god', 'act']) 
