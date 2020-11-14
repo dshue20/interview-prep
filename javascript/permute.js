@@ -18,11 +18,15 @@ var permute = function(nums) {
     const result = [];
     const first = nums.pop();
     const prevPerms = permute(nums);
+    const hash = {};
     prevPerms.forEach(perm => {
         for (let i = 0; i <= perm.length; i++) {
             let nextPerm = perm.slice(0, i).concat([first]).concat(perm.slice(i));
-            result.push(nextPerm);
+            if (!hash[nextPerm]) result.push(nextPerm);
+            hash[nextPerm] = true;
         }
     });
     return result;
 };
+
+console.log(permute([1,1,2]));
