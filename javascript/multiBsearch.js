@@ -1,36 +1,39 @@
-var searchRange = function(nums, target) {
-    let result = [-1, -1];
-    let numsCopy = [...nums];
-    let startIdx = 0;
-    while (numsCopy.length > 0){
-        let mid = Math.floor(numsCopy.length/2);
-         if (target < numsCopy[0] || target > numsCopy[numsCopy.length-1]) {
-            return result;
-        } else if (numsCopy[mid] === target){
-            let idx = mid + startIdx;
-            result[0] = idx;
-            result[1] = idx;
-            let lower = idx - 1;
-            while (nums[lower] === target && lower >= 0){
-                result[0] = lower;
-                lower--;
-            }
-            let upper = idx + 1;
-            while (nums[upper] === target && upper < nums.length){
-                result[1] = upper;
-                upper++;
-            }
-            return result;
-        } else if (numsCopy[mid] < target){
-            numsCopy = numsCopy.slice(mid+1);
-            startIdx += mid+1;
-        } else {
-            numsCopy = numsCopy.slice(0, mid);
-        }   
-    };
-    return result;
+// Given an array of integers nums sorted in non-decreasing order, find the starting and ending position of a given target value.
+
+// If target is not found in the array, return [-1, -1].
+
+// You must write an algorithm with O(log n) runtime complexity.
+
+var searchRange = function (nums, target) {
+  let first = findTarget(nums, target);
+  let last = first;
+  if (first === -1) return [first, last];
+
+  let newFirst = findTarget(nums.slice(0, first), target);
+  while (newFirst !== -1 && first) {
+    first = newFirst;
+    newFirst = findTarget(nums.slice(0, first), target);
+  }
+
+  let newLast = findTarget(nums.slice(last + 1), target);
+  // console.log(newLast, nums.slice(last+1))
+  while (newLast !== -1 && last < nums.length - 1) {
+    last = newLast + last + 1;
+    newLast = findTarget(nums.slice(last + 1), target);
+  }
+
+  return [first, last];
 };
 
-// console.log(searchRange([5,7,7,8,8,10], 6));
-// console.log(searchRange([1,3], 1));
-console.log(searchRange([0,0,2,3,4,4,4,5], 5));
+var findTarget = function (nums, target) {
+  if (!nums.length) return -1;
+  let midIdx = Math.floor(nums.length / 2);
+  if (nums[midIdx] > target) {
+    return findTarget(nums.slice(0, midIdx), target);
+  } else if (nums[midIdx] < target) {
+    let answer = findTarget(nums.slice(midIdx + 1), target);
+    return answer === -1 ? -1 : answer + midIdx + 1;
+  } else {
+    return midIdx;
+  }
+};
